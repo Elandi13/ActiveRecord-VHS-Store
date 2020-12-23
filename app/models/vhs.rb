@@ -5,6 +5,13 @@ class Vhs < ActiveRecord::Base
     has_many :clients, through: :rentals
     belongs_to :movie
 
+    def movie_title
+        #binding.pry
+        movie = Movie.all.find{|m| m.id == self.movie_id}
+        movie.title
+    end
+
+
 
     private
 

@@ -9,11 +9,7 @@ class Rental < ActiveRecord::Base
     end
 
     def self.past_due_date
-        binding.pry
-        self.select do |r|
-    
-        end
-
+        Rental.all.select{|r| r if r.updated_at > r.due_date}
     end
 
 end
